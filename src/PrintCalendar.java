@@ -14,7 +14,28 @@ public class PrintCalendar {
 		printMonth(year, month);
     }
     else{
-    	
+    	Calendar c1 = new GregorianCalendar(c.get(Calendar.YEAR),c.get(Calendar.MONTH),1);  
+		Calendar c2 = new GregorianCalendar(c1.get(Calendar.YEAR),c1.get(Calendar.MONTH)+1,1);  
+
+		//print GregorianCalendar
+		System.out.println("\t"+(getMonthName(c1.get(Calendar.MONTH)+1))+", "+c1.get(Calendar.YEAR)+" ");  
+		System.out.println("----------------------------");
+		System.out.println("Sun Mon Tue Wed Thu Fri Sat");  
+
+		for(int i =1; i<c1.get(Calendar.DAY_OF_WEEK);i++){ 
+			System.out.print("    ");  }
+		do{
+			if(c1.get(Calendar.DAY_OF_WEEK)==7){
+					if(c1.get(Calendar.DAY_OF_MONTH)<10)System.out.print(" ");
+					System.out.println(""+c1.get(Calendar.DAY_OF_MONTH)+"");
+				}
+			else{
+				if(c1.get(Calendar.DAY_OF_MONTH)<10)System.out.print(" ");
+				System.out.print(c1.get(Calendar.DAY_OF_MONTH)+"  ");  
+			}
+
+			c1.add(Calendar.DAY_OF_MONTH, 1);  
+		}while(c1.get(Calendar.MONTH) != c2.get(Calendar.MONTH));  
     }
 
   }
