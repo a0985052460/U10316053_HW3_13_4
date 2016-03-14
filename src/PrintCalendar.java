@@ -6,17 +6,17 @@ public class PrintCalendar {
   /** Main method */
   public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
+    
+    Calendar c=new GregorianCalendar();
+    if(args.length>0){
+    	int month = Integer.parseInt(args[0]);//first var
+		int year = Integer.parseInt(args[1]);//second var
+		printMonth(year, month);
+    }
+    else{
+    	
+    }
 
-    // Prompt the user to enter year
-    System.out.print("Enter full year (e.g., 2001): ");
-    int year = input.nextInt();
-
-    // Prompt the user to enter month
-    System.out.print("Enter month in number between 1 and 12: ");
-    int month = input.nextInt();
-
-    // Print calendar for the month of the year
-    printMonth(year, month);
   }
 
   /** Print the calendar for a month in a year */
